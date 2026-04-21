@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Blog Generator</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+
+   <style>
+      @keyframes rotate{
+      from{
+        transform: rotate(0deg);
+      }
+      to{
+        transform: rotate(360deg);
+    }
+}
+
+   @webkit-keyframes rotate{
+      from{
+        transform: rotate(0deg);
+      }
+      to{
+        transform: rotate(360deg);
+      }
+   } 
+    .load {
+        width: 50px;
+        height: 50px;
+        margin: 100px auto 0;
+        border: solid 7px #6961bcaa;
+        border-radius: 50%;
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+        -webkit-transiton: all 0.5s ease-in;
+        -webkit-animation-name: rotare;
+        -webkit-animation-duration: 1s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-timing-function: linear;
+        transition:all 0.5s ease-in;
+        animation-name: rotate;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+     }
+   </style>
+
+</head>
+<body class="flex flex-col min-h-screen bg-gray-100 font-sans antialiased">
+
+  <!-- Navbar -->
+  <nav class="bg-blue-600 p-4 text-white flex justify-between">
+    <div>
+      <h1 class="text-3xl font-bold">AI Blog Generator</h1>
+    </div>
+    <div>
+        <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded-full font-extrabold text-lg transform hover:scale-110 
+        hover:bg-white hover:text-blue-600 transition duration-300 ease-in-out shadow-md">Logout</a>
+
+
+    </div>
+  </nav>
+
+ <!-- paragraph -->
+      <div class="w-full flex flex-col items-center text-center mt-6 px-4">
+      <h2 class="text-2xl font-semibold mb-2">Welcome to the AI Blog Generator</h2>
+      <p> YouTube Link to Blog Generator, an AI-powered tool that takes a YouTube video URL,transcribes its content, 
+        <br>and automatically generates a well-structured,readable blog post from it. Ideal for content creators, marketers, educators, 
+        <br>and bloggers — this tool saves you hours of writing by transforming video contentinto polished articles in seconds.</p>
+      </div>
+
+  <!-- Main content centered -->
+  <main class="flex-grow flex flex-col items-center justify-center text-center p-4">
+    
+    <!-- paate the link button and generate blog -->
+    <div class="mt-6 w-full max-w-xl">
+      <h2 class="text-xl font-semibold mb-2">Paste the YouTube Link</h2>
+      <div class="flex space-x-4">
+        <form action="/generate_blog" method="POST" class="flex w-full">
+        <input id="youtube-link" type="url" placeholder="Paste YouTube Link..." class="flex-grow p-4 border border-blue-400 rounded-l-md">
+        <button id="generateBlogButton"class="bg-blue-600 text-white px-4 py-2 rounded-r-md hover:bg-blue-700 transition-colors">
+          Generate
+        </button>
+         </form>
+      </div>
+    </div>
+
+    <!-- loading circle -->
+     <div style="display: block;" id="loading-circle" class="load">
+
+     </div>
+
+    <!-- click here to Generate Blog -->
+    <section class="mt-10 w-full max-w-2xl">
+      <p class="text-sm text-gray-600">Click the button to generate a blog post based on the provided YouTube link.</p>
+      <h2 class="text-xl mb-4 font-semibold">Generated Blog Article</h2>
+      <div id="blockcontent" class="mt-12 text-gray-700 space-y-4">
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center py-4 text-black mt-6">
+    Powered by <a href="#" class="underline text-blue-600">Code With Me</a>
+  </footer>
+
+</body>
+</html>
+
